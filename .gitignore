@@ -42,6 +42,8 @@
 !/.tmux/conf/
 !/.tmux/conf/**
 !/.tmux/log/
+!/.tmux/plugins/
+!/.tmux/plugins/**
 !/.gdbinit
 !/.conkycolors/
 !/.conkycolors/**
