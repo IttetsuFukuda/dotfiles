@@ -133,6 +133,7 @@ bindkey '^r' peco-select-history
 
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -147,6 +148,7 @@ INSTALLATION_PATH=$(brew --prefix switch) && source $INSTALLATION_PATH/switch.sh
 function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
 export PATH="/opt/homebrew/sbin:$PATH"
 
+# pomodoro in terminal
 alias work="timer 25m && terminal-notifier -message 'Pomodoro'\
         -title 'Work Timer is up! Take a Break 😊'\
         -appIcon 'http://vjeantet.fr/images/logo.png'"
@@ -155,3 +157,9 @@ alias rest="timer 5m && terminal-notifier -message 'Pomodoro'\
         -title 'Break is over! Get back to work 😬'\
         -appIcon 'http://vjeantet.fr/images/logo.png'"
 
+# NVM(Node Version Manager)
+# https://git.rakuten-it.com/projects/DUI/repos/dynamic-ui/browse/docs/getting-started.md
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
